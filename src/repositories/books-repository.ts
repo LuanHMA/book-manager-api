@@ -1,4 +1,3 @@
-import { count } from "console";
 import { UpdateBooksRequest } from "../@types/books.js";
 import { db } from "../config/database.js";
 import { Books } from "../models/books-model.js"
@@ -13,8 +12,6 @@ export class BooksRepository {
             "SELECT * FROM books ORDER BY id DESC LIMIT ? OFFSET ?",
             [limit, offset]
         );
-
-        console.log(books)
 
         const [countRows]: any = await db.execute("SELECT COUNT(*) as count FROM books")
 

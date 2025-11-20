@@ -2,12 +2,10 @@ import { FastifyInstance, FastifyReply, FastifyRequest } from "fastify";
 import { ZodError } from "zod";
 import { DomainError } from "./domain-errors.js";
 
-
 interface ErrorResponse {
     message: string;
     details?: unknown;
 }
-
 
 export function globalErrorHandler(error: Error, request: FastifyRequest, reply: FastifyReply) {
     let statusCode: number;
